@@ -4,6 +4,7 @@ const app = express()
 
 app.set('view engine', 'pug')
 app.use(express.static('dist'))
+app.get('/health-check', (req, res) => res.sendStatus(200));
 app.get('/', function (_, res) {
   res.render('index', { prime: bookmarklets.prime(process.env.SERVER || 'http://localhost', process.env.PORT || 3000) })
 })

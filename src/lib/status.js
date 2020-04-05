@@ -11,20 +11,20 @@ document.body.append(status)
 
 export const connected = title => {
   status.title = title
-  status.innerHTML = '🎉'
+  // status.innerText = '🎉'
 }
 
 export const failed = title => {
   status.title = title
-  status.innerHTML = '😱'
+  // status.innerText = '😱'
 }
 
 export const connecting = title => {
   status.title = title
-  status.innerHTML = '🤔'
+  // status.innerText = '🤔'
 }
 
 export const syncing = title => {
   status.title = title
-  status.innerHTML = '😴'
+  // status.innerText = '😴'
 }
