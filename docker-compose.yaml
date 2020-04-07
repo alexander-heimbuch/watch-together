@@ -32,6 +32,8 @@ services:
     restart: always
     image: aheimbuch/watch-together
     container_name: watch-together
+    ports:
+      - "3000:443"
     environment:
       - VIRTUAL_HOST=sample.example.com
       - VIRTUAL_NETWORK=nginx-proxy
@@ -39,7 +41,7 @@ services:
       - LETSENCRYPT_HOST=sample.example.com
       - LETSENCRYPT_EMAIL=email@example.com
       - SERVER=https://sample.com
-      - PORT=3000
+      - PORT=443
 
 volumes:
   conf:
