@@ -1,1 +1,1 @@
-export const server = window.VIDEO_PARTY_SERVER
+export const server = window.WATCH_TOGETHER_SERVER

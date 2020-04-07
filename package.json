@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run build",
     "start": "node server.js",
     "build": "parcel build src/*.js"
   },
@@ -16,7 +15,9 @@
     "express": "4.17.1",
     "socket.io-client": "2.3.0",
     "bookmarkleter": "1.0.1",
-    "pug": "2.0.4"
+    "pug": "2.0.4",
+    "uuid": "7.0.3",
+    "lodash": "4.17.15"
   },
   "devDependencies": {
     "parcel": "1.12.4"
