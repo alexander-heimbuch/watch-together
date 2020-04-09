@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node main.js",
     "dev": "node main.js",
-    "build": "parcel build src/*.js"
+    "build": "parcel build src/watch-together.js"
   },
   "keywords": [],
   "author": "",
