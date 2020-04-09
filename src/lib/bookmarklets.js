@@ -1,8 +1,9 @@
 const bookmarkleter = require('bookmarkleter')
+const config = require('config')
 
-module.exports = (server, port) => bookmarkleter(`
-  window.WATCH_TOGETHER_SERVER = '${server}:${port}';
+module.exports = bookmarkleter(`
+  window.WATCH_TOGETHER_SERVER = '${config.get('root')}';
   var script = document.createElement('script');
-  script.src = '${server}:${port}/watch-together.js';
+  script.src = '${config.get('root')}/watch-together.js';
   document.body.append(script);
 `)

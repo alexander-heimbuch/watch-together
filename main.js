@@ -1,16 +1,17 @@
+const config = require('config')
 const express = require('express')
+const { http, https } = require('./src/server')
 const { get } = require('lodash')
 const bookmarklet = require('./src/lib/bookmarklets')
 const app = express()
 
 app.set('view engine', 'pug')
 app.use(express.static('dist'))
-app.get('/health-check', (req, res) => res.sendStatus(200));
 app.get('/', function (_, res) {
-  res.render('index', { bookmarklet: bookmarklet(process.env.SERVER || 'http://localhost', process.env.PORT || 3000) })
+  res.render('index', { bookmarklet })
 })
 
-const server = require('http').createServer(app)
+const server = config.get('environment') === 'production' ? https(app) : http(app)
 const io = require('socket.io')(server)
 
 const CLIENTS = {}
@@ -60,4 +61,7 @@ io.on('connection', client => {
   client.on('disconnect', disconnect(client))
 });
 
-server.listen(process.env.PORT || 3000)
+
+server.listen(config.get('port'), () => {
+  console.log('started server on port', config.get('port'))
+})
