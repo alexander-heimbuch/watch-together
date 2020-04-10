@@ -11,7 +11,7 @@ document.body.append(status)
 
 export const client = title => {
   status.title = title
-  status.innerText = '🎉'
+  status.innerText = '🍿'
 }
 
 export const host = title => {
