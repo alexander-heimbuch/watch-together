@@ -9,9 +9,14 @@ status.style['font-size'] = '2em'
 
 document.body.append(status)
 
-export const connected = title => {
+export const client = title => {
   status.title = title
   status.innerText = '🎉'
+}
+
+export const host = title => {
+  status.title = title
+  status.innerText = '📽'
 }
 
 export const failed = title => {

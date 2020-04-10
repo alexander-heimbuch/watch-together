@@ -3,6 +3,23 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png")
+    link(rel="manifest" href="site.webmanifest")
+    link(rel="stylesheet" type="text/css" href="style.css")
     title Watch Together
-  body
-    a.bookmarklet(href=bookmarklet) 🍿 Watch Together
+  body.w-screen.h-screen.flex.items-center.justify-center.bg-teal-100.flex-col.antialiased.font-sans
+    a.rounded.bg-teal-900.px-10.py-5.text-3xl.text-gray-200.shadow-xl.duration-300.transition-shadow.transition-colors.cursor-move.mb-16(class="hover:shadow-2xl hover:bg-teal-800" href=bookmarklet) 📽 Watch Together 🍿
+
+    ol.text-lg.text-gray-600.list-decimal.ml-4.mb-24
+      li Drag this 👆 to your bookmark bar
+      li Click the bookmark on the streaming site 📺
+      li If you are the host: copy and share the id 📽
+      li If you are a watcher: paste in the recieved id 🍿
+
+    div.text-gray-500.text-xs
+      a.mr-4(href="https://alexander.heimbu.ch/") 👨‍💻
+        span.pl-1 Alexander Heimbuch
+      a(href="https://github.com/alexander-heimbuch/watch-together") ✏️
+        span.pl-1 Github

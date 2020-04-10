@@ -1,12 +1,19 @@
 {
-  "name": "video-party",
+  "name": "watch-together",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node main.js",
-    "dev": "node main.js",
-    "build": "parcel build src/watch-together.js"
+    "cleanup": "rm -rf dist/ && mkdir -p dist/",
+    "start": "npm run build && pm2 -n watch-together start main.js",
+    "dev": "npm run cleanup && concurrently 'env DEBUG=watch-together npm run dev:server' 'npm run dev:client'",
+    "dev:server": "npm-run-all cleanup build:css build:assets && nodemon main.js",
+    "dev:client": "parcel watch src/watch-together.js",
+    "build:client": "parcel build src/watch-together.js",
+    "build:css": "postcss src/styles/style.css -o dist/style.css",
+    "build:assets": "cp src/assets/* dist/",
+    "build": "npm-run-all cleanup build:*",
+    "monitor": "pm2 monitor watch-together"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +26,18 @@
     "pug": "2.0.4",
     "uuid": "7.0.3",
     "lodash": "4.17.15",
-    "config": "3.3.1"
+    "config": "3.3.1",
+    "node-cache": "5.1.0",
+    "debug": "4.1.1",
+    "pm2": "4.2.3"
   },
   "devDependencies": {
-    "parcel": "1.12.4"
+    "parcel": "1.12.4",
+    "tailwindcss": "1.2.0",
+    "autoprefixer": "9.7.6",
+    "npm-run-all": "4.1.5",
+    "nodemon": "2.0.3",
+    "concurrently": "5.1.0",
+    "postcss-cli": "7.1.0"
   }
 }

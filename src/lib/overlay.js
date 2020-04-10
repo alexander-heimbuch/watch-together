@@ -26,7 +26,7 @@ export default (cb) => {
   logo.style.fontSize = "1.75em";
   logo.style.marginBottom = "10px";
   logo.style.textAlign = "center";
-  logo.innerHTML = "🍿 Watch Together 🍿";
+  logo.innerHTML = "📽 Watch Together 🍿";
   overlay.append(logo);
 
   const info = document.createElement("div");
@@ -35,7 +35,7 @@ export default (cb) => {
   info.style.fontStyle = "italic";
   info.style.marginBottom = "20px";
   info.style.textAlign = "center";
-  info.innerHTML = "Enter your party id or share this one";
+  info.innerHTML = "enter your party id or share this one";
   overlay.append(info);
 
   const input = document.createElement("input");

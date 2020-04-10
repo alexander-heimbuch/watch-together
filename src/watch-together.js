@@ -1,10 +1,12 @@
 import connect from './lib/connect'
 import overlay from './lib/overlay'
+import log from './lib/client-logger'
+import detectVideo from './lib/video'
 
-const video = document.querySelector('video[src]')
+const video = detectVideo()
 
 if (!video) {
-  console.error(`Prime Party: Couldn't find a video to connect to`)
+  log(`Couldn't find a video to connect to`)
 } else {
   overlay(connect(video))
 }
