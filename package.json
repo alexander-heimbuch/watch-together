@@ -24,7 +24,7 @@
     "bookmarkleter": "1.0.1",
     "pug": "2.0.4",
     "uuid": "7.0.3",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "config": "3.3.1",
     "node-cache": "5.1.0",
     "debug": "4.1.1"
