@@ -1,6 +1,5 @@
 {
   "environment": "APP_ENV",
   "root": "APP_ROOT",
-  "port": "APP_PORT",
-  "certs": "APP_CERTS"
+  "port": "APP_PORT"
 }

@@ -1,0 +1,10 @@
+watch-together.video {
+    proxy / watch-together {
+      websocket
+      transparent
+      insecure_skip_verify
+    }
+
+    gzip
+    tls watch-together@zusatzstoff.org
+}

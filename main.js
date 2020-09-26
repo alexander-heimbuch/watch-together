@@ -1,7 +1,7 @@
 const debug = require('debug')('watch-together')
 const config = require('config')
 const express = require('express')
-const { http, https } = require('./src/server')
+const { http } = require('./src/server')
 
 const bookmarklet = require('./src/lib/bookmarklets')
 const app = express()
@@ -19,31 +19,31 @@ if (config.get('environment')  === 'development') {
   })
 }
 
-const server = config.get('environment') === 'production' ? https(app) : http(app)
+const server = http(app)
 const io = require('socket.io')(server)
 
 const dispatch = (_, type) => ({ session, payload }) => {
  debug(`dispatch: ${session}:${type} ~>`)
 
   cache.get(session).forEach(client => {
-   debug(`   client: ${client.id}`)
+    debug(`   client: ${client.id}`)
     client.emit(type, payload)
   })
 }
 
 const register = client => session => {
- debug(`register: ${client.id}, session: ${session}`)
+  debug(`register: ${client.id}, session: ${session}`)
   const existing = cache.add(session, client)
   client.emit('role', existing.length === 0 ? 'master' : 'client')
 }
 
 const remove = client => () => {
- debug(`remove: ${client.id}`)
+  debug(`remove: ${client.id}`)
   cache.remove(client.id)
 }
 
 io.on('connection', client => {
- debug(`connect: ${client.id}`)
+  debug(`connect: ${client.id}`)
   client.on('session', register(client))
   client.on('play', dispatch(client, 'play'))
   client.on('pause', dispatch(client, 'pause'))

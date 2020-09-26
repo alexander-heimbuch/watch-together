@@ -40,7 +40,7 @@ export default (video) => (id) => {
 
       socket.on("updatetime", (timeStamp) => {
         if (timeStamp > video.currentTime + 3 * 1000 || timeStamp < video.currentTime + 3 * 1000) {
-          video.currentTime = currentTime;
+          video.currentTime = timeStamp;
           log(`out of sync (current: ${video.currentTime}, recieved: ${timeStamp})`);
         }
       });
