@@ -22,8 +22,6 @@ Pretty much everything that uses a HTML5 video tag:
 
 ## Installation
 
-🚨 requires node 12+, a working certificate for your domain
-
 1. clone this repo
 2. run `npm install`
 
@@ -41,6 +39,12 @@ Pretty much everything that uses a HTML5 video tag:
 2. Run `npm install`
 3. Run `npm run dev` to start the development environment
 4. use `http://localhost:3000/example` to get an interactive example
+
+## Deployment
+
+1. Change the APP_ROOT in `docker-compose.yml`
+2. Adapt the `Caddyfile` accordingly
+3. Checkout the repo on your server and run `docker-compose up -d`
 
 ## Functionality
 
